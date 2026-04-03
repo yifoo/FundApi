@@ -36,10 +36,10 @@ const getNewNet = async (code) => {
   let data = resp.data.split("|")
   return {
     fundcode: code,
-    jzrq: parseFloat(data[0]),
-    dwjz: parseFloat(data[1]),
-    gsz: parseFloat(data[7]) || parseFloat(data[1]),
-    gszzl: parseFloat(data[5]) || parseFloat(data[4]),
+    jzrq: parseFloat(data[0]) || "",
+    dwjz: parseFloat(data[1]) || "",
+    gsz: parseFloat(data[7]) || parseFloat(data[1]) || "",
+    gszzl: parseFloat(data[5]) || parseFloat(data[4]) || "",
     gztime: `${data[9]} ${data[10]}`
   }
 }
@@ -87,7 +87,7 @@ module.exports = async (params = {}) => {
               return parseJson
             } else {
               let data = await getNewNet(element)
-              logger.info('element:1 ', element);
+              logger.info('element:1 ', element, data);
               return data
             }
           } else {
