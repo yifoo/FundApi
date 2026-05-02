@@ -33,12 +33,14 @@ module.exports = async (params = {}) => {
   };
 
   const header = {
-    'Accept-Encoding': 'gzip',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    tracestate: 'pid=0x14ae0b310,taskid=0x6000004c6580',
     Host: 'push2.eastmoney.com',
-    Referer: 'https://quote.eastmoney.com/center/qqzs.html',
-  };
+    GTOKEN: 'BF0EE8509F444F118390658845558510',
+    clientInfo: 'ttjj-iPad Pro 3 (12.9-inch)-iOS-iPadOS17.7',
+    'MP-VERSION': '1.3.6',
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'User-Agent': 'EMProjJijin/6.8.3 (iPad; iOS 17.7; Scale/2.00)',
+    Referer: 'https://mpservice.com/7d7b3460cd40444ba58cdabdfae34442/release/pages/option/index',
+  }
 
   try {
     const res = await get(url, queryParams, header);
